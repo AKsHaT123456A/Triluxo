@@ -15,7 +15,7 @@ import {
 import { app } from "@/utils/firebase";
 import dynamic from "next/dynamic";
 const ReactQuill = dynamic(() => import("react-quill"), {
-  ssr: false, // Load only on the client side
+  ssr: false,
 });
 const WritePage = () => {
   const { status } = useSession();
