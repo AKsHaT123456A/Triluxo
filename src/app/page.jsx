@@ -1,4 +1,3 @@
-"use client";
 
 import styles from "./homepage.module.css";
 import Featured from "@/components/featured/Featured";
