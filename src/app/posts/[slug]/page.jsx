@@ -4,9 +4,9 @@ import Image from "next/image";
 import Comments from "@/components/comments/Comments";
 
 const getData = async (slug) => {
-  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/posts/${slug}`, {
+  fetch(`${process.env.NEXTAUTH_URL}/api/posts/${slug}`, {
     cache: "no-store",
-  });
+  }).then((res) => res.json()).catch((err) => console.log(err));
 
   if (!res.ok) {
     throw new Error("Failed");
@@ -50,7 +50,7 @@ const SinglePage = async ({ params }) => {
             dangerouslySetInnerHTML={{ __html: data?.desc }}
           />
           <div className={styles.comment}>
-            <Comments postSlug={slug}/>
+            <Comments postSlug={slug} />
           </div>
         </div>
         <Menu />
